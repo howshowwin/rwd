@@ -1,0 +1,52 @@
+=size($h,$w:$h)
+    width: $w
+    height: $h
+$translate: random(100)-200
+$translateY: random(500)
+html,body
+    +size(100%)
+    background-color: #222222
+    position: relative
+    .frame
+        +size(400px,100%)
+        
+        position: absolute
+        top: 50%
+        
+        
+        margin-top: -200px
+        
+        
+        // background-color: #cccccc
+
+        
+
+        .ball
+            +size(4px)
+            background: #ffffff
+            border-radius: 50%
+            // animation: move-top-down 3s infinite alternate
+@for $i from 1 through 300
+
+
+    .box#{$i}
+        position: absolute
+        top: 50%
+        left: calc(#{$i}*1000px/100)
+        animation: move-top-down 5s infinite alternate calc(#{$i}*0.02s)
+        // @keyframes move-top-down
+        //     0%
+
+        //     50%
+        //         transform: translateY(-200px) 
+        //     100%
+        //         transform: translateY(200px) 
+@keyframes move-top-down
+    0%
+
+    50%
+        transform: translate(20px,200px) 
+    100%
+        transform: translate(20px,-200px)
+
+

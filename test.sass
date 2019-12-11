@@ -1,0 +1,62 @@
+=size($h,$w:$h)
+    width: $w
+    height: $h
+
+@keyframes span
+    0%
+
+    25%
+        background: yellow
+        box-shadow: 0 0 15px yellow
+        
+    50%
+        background: red
+        box-shadow: 0 0 15px red
+        +size(20px)
+    75%
+        background: #ffffff
+        box-shadow: 0 0 15px #ffffff
+    100%
+        background: #235456
+        box-shadow: 0 0 15px #235456
+
+html,body
+    +size(100%)
+    background-color: #222222
+.frame
+    +size(100%)
+    margin:auto
+    .mid
+        position: relative
+        +size(100%)
+        perspective: 600px
+        .box
+            position: absolute
+            // background: red
+            +size(30px)
+            top: 0
+            left: 0
+            .star
+                +size(3px)
+                
+                background: #ffffff
+                
+                box-shadow: 0 0 15px #ffffff
+                
+@for $i from 1 through 50
+    .box#{$i}
+        transform: translate3d(#{random(800px)}px,#{random(700px)}px,#{random(200px)}px)
+        animation: move2 30s infinite alternate
+        .star
+            
+            animation: span 5s alternate infinite #{calc(#{-$i*50} * 0.005s)} 
+
+    @keyframes move2 
+        0%
+        
+        100%
+            // transform: translate3d(#{random(600px)}px,#{random(100px)}px,#{random(400px)}px)
+
+
+
+
